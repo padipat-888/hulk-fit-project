@@ -8,4 +8,5 @@
 /* ตั้งค่า font หลักของเว็บ เป็น Manrope ภาษาไทยเป็น Noto Sans Thai */
 html{
     font-family: 'Manrope', 'Noto Sans Thai', sans-serif;
+    background-image: url("/src/assets/bg.png");
 }
