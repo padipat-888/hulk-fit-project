@@ -22,7 +22,7 @@ import football from "../../../src/assets/type/football.png"
 
 const ActivityType = () => {
   return (
-    <div className="bg-[url('/src/assets/bg.png')]">
+    <div className="">
     <div className="w-[290px] m-auto">
       <h1 className="text-5xl text-white text-center mt-24 mb-11">Activity Type</h1>
       <div className="grid grid-cols-2 justify-items-center">

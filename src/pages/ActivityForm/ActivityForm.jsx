@@ -1,12 +1,14 @@
 import React, { useState } from 'react'
-import { useLocation } from 'react-router-dom';
+import { useLocation , useNavigate } from 'react-router-dom';
 import user from "../../../src/assets/user.png"
 
 const ActivityForm = () => {
   let { state } = useLocation();
+  const navigate = useNavigate();
   const [activityName, setActivityName] = useState("");
   const [activityDes, setActivityDes] = useState("")
   const [uploadFile, setUploadFile] = useState( user );
+  const [id, setId] = useState( 1 )
 
   const handleFileChange = (evl) => { 
     const file = evl.target.files[0]
@@ -15,21 +17,23 @@ const ActivityForm = () => {
   }
 
   const addActivity = async () => {
+    
     const newActivity = {
-      idActivity: 1,
+      idActivity: id,
       type: state.type,
       image: uploadFile,
       activity: activityName,
       desc: activityDes,
       start: new Date()
     };
-    console.log(newActivity)
 
+    setId( id+1 )
+    navigate('/activitytiming', { newActivity : newActivity });
     alert("Success")
   };
 
   return (
-    <div className="bg-[url('/src/assets/bg.png')] text-white">
+    <div className="text-white">
     <div className="w-[328px] flex flex-col m-auto">
       <img className="w-[93px] h-[37] mt-16	self-end" src={ state.icon } />
       
