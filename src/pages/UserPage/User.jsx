@@ -2,14 +2,20 @@ import React from 'react'
 import Navbar from '../../components/Navbar.jsx'
 import Caruosel from '../../components/Carousel.jsx'
 import { MdDirectionsRun,MdLocalFireDepartment,MdLocationPin} from "react-icons/md";
+import { useLocation } from 'react-router-dom';
 
 const User = () => {
+  const getData = useLocation()
+  let user = getData.state.user
+  let pass = getData.state.pass
+  alert(`DataFromLogin: ${user} and ${pass}`)
+  console.log(typeof user)
   return (
     <div className="bg-[url('/assets/userhomeBg.png')] h-screen bg-no-repeat">
       <div>
         {/* section 1 for Teader Text */}
         <div className='pt-16 pl-7'>
-          <h1 className='text-3xl text-white'><span className='text-[#00ECFF]'>Good</span> Morning <span className='text-[#F53FA1]'>Alex</span></h1>
+          <h1 className='text-3xl text-white'><span className='text-[#00ECFF]'>Good</span> Morning <span className='text-[#F53FA1]'>{user.toUpperCase()}</span></h1>
           <h2 className='text-2xl text-white font-light pl-8'>Let's start your day</h2>
         </div>
         {/* section 2 for Workout News */}
@@ -48,7 +54,7 @@ const User = () => {
             <div className='bg-white m-6 p-5 h-[100px] rounded-sm'></div>
           </div> 
         </div>
-        <Navbar />
+        <Navbar user={user} />
       </div>
       
     </div>

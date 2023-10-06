@@ -19,6 +19,7 @@ const ActivityForm = () => {
   const addActivity = async () => {
     
     const newActivity = {
+      user:state.user,
       idActivity: id,
       type: state.type,
       image: uploadFile,
@@ -28,7 +29,8 @@ const ActivityForm = () => {
     };
 
     setId( id+1 )
-    navigate('/activitytiming', { newActivity : newActivity });
+    console.log(newActivity)
+    navigate('/activitytiming', { state : newActivity });
     alert("Success")
   };
 
