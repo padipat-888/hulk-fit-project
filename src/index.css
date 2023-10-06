@@ -9,4 +9,6 @@
 html{
     font-family: 'Manrope', 'Noto Sans Thai', sans-serif;
     scroll-behavior: smooth;
+    background-image: url("/src/assets/bg.png");
 }
+
