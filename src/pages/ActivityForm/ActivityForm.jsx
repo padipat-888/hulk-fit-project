@@ -38,7 +38,7 @@ const ActivityForm = () => {
       <img className="w-[93px] h-[37] mt-16	self-end" src={ state.icon } />
       
       <label htmlFor="fileUpload" className="button">
-      <img src={uploadFile} alt="user image" className="w-[180px] h-[180px] mt-[30px] mb-[34px] m-auto	"/>
+      <img src={uploadFile} alt="user image" className="w-[180px] h-[180px] object-cover mt-[30px] mb-[34px] m-auto	"/>
       </label>
       <input
         type="file"
