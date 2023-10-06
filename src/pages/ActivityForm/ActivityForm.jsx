@@ -1,14 +1,14 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useLocation , useNavigate } from 'react-router-dom';
-import user from "../../../src/assets/user.png"
+import user from "../../../src/assets/user.png";
 
 const ActivityForm = () => {
   let { state } = useLocation();
   const navigate = useNavigate();
   const [activityName, setActivityName] = useState("");
-  const [activityDes, setActivityDes] = useState("")
+  const [activityDes, setActivityDes] = useState("");
   const [uploadFile, setUploadFile] = useState( user );
-  const [id, setId] = useState( 1 )
+  const [id, setId] = useState( 1 );
 
   const handleFileChange = (evl) => { 
     const file = evl.target.files[0]
@@ -26,19 +26,23 @@ const ActivityForm = () => {
       desc: activityDes,
       start: new Date()
     };
-
-    setId( id+1 )
+    //setAlert(true);
+    setId( id+1 );
     navigate('/activitytiming', { newActivity : newActivity });
-    alert("Success")
+    alert("Success");
   };
 
   return (
     <div className="text-white">
+      {/* <div className="alert alert-success">
+  <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+  <span>Success!</span>
+</div> */}
     <div className="w-[328px] flex flex-col m-auto">
       <img className="w-[93px] h-[37] mt-16	self-end" src={ state.icon } />
       
       <label htmlFor="fileUpload" className="button">
-      <img src={uploadFile} alt="user image" className="w-[180px] h-[180px] object-cover mt-[30px] mb-[34px] m-auto	"/>
+      <img src={uploadFile} alt="user image" className="w-[180px] h-[180px] object-cover rounded-xl border-4 border-[#243c5a] mt-[30px] mb-[34px] m-auto	hover:border-white"/>
       </label>
       <input
         type="file"
@@ -49,7 +53,7 @@ const ActivityForm = () => {
  
       <label htmlFor="activity-name" className="my-0.5 px-3 text-2xl ">Activity Name</label>
       <input
-        className="my-0.5 border-2 border-[#243c5a] rounded-lg bg-inherit p-3.5  hover:border-white" id="activity-name"
+        className="my-0.5 border-2 border-[#243c5a] rounded-lg bg-inherit p-3.5 hover:border-white" id="activity-name"
         name="activity-name"
         placeholder="Enter Activity name"
         value={activityName}
@@ -67,6 +71,7 @@ const ActivityForm = () => {
         value={activityDes}
         onChange={(evl) => setActivityDes(evl.target.value)}
       ></textarea>
+      
       <button onClick={addActivity} className="h-[57px] my-16 bg-[#00ECFF] rounded-lg text-black text-2xl	font-bold	">Start</button>
 </div>
 </div>
