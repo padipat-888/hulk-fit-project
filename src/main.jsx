@@ -9,7 +9,7 @@ import Concluding from './pages/Concluding/Concluding.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import LandingPage from './pages/LandingPage/LandingPage.jsx';
 import Login from './pages/Login/Login.jsx';
-import SingUp from './pages/Signup/SignUp.jsx';
+import SignUp from './pages/Signup/SignUp.jsx';
 import UserPage from './pages/UserPage/User.jsx'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
@@ -25,7 +25,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/signup",
-    element: <SingUp />,
+    element: <SignUp />,
   },
   {
     path: "/userhome",

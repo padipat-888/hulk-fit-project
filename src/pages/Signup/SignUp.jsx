@@ -1,7 +1,7 @@
 import React from 'react'
 import { useLocation } from 'react-router-dom'
 
-const SingUp = () => {
+const SignUp = () => {
   let { state } = useLocation();
 
   return (
@@ -12,4 +12,4 @@ const SingUp = () => {
   )
 }
 
-export default SingUp
+export default SignUp
