@@ -6,9 +6,8 @@ import { useLocation } from 'react-router-dom';
 
 const User = () => {
   const getData = useLocation()
-  let user = getData.state.user
-  let pass = getData.state.pass
-  alert(`DataFromLogin: ${user} and ${pass}`)
+  let user = getData.state.id
+  alert(`DataFromLogin: ${user}`)
   console.log(typeof user)
   return (
     <div className="bg-[url('/assets/userhomeBg.png')] h-screen bg-no-repeat">

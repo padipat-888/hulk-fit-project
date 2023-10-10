@@ -1,34 +1,28 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 const Login = () => {
-  const [userEmail, setUserEmail] = useState('');
-  const [userPass, setUserPass] = useState('');
-  const data = { user: userEmail, pass: userPass };
-
-  const mockData = { user: 'admin', pass: '123456' };
-
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
 
-  const loginHandler = () => {
-    if (userEmail != '' && userPass != '') {
+  const loginHandler = async () => {
+    try {
+      const response = await axios.post('http://localhost:4000/login', {
+        email: email,
+        password: password,
+      });
 
-      if (data.user === mockData.user && data.pass === mockData.pass) {
+      setError('')
+      const id = response.data.id
+      navigate('/userhome' , {state:{id:id}})
+      // console.log('Login successful:' ,response.data.message);
 
-        navigate('/userhome', {state:data});
-        alert(`Admin Login`);
-        
-      } else {
-
-        navigate('/signup', {state:data});
-        alert(`User Login`);
-      }
-    } else {
-      alert('Error: ใส่ข้อมูลด้วยฮะ');
+    } catch (error) {
+      setError('Invalid Credentail');
     }
-
-    console.log(`Mock: user:${userEmail},pass: ${userPass}`);
-    console.log(`Mock: user:${mockData.user},pass: ${mockData.pass}`);
   };
 
   return (
@@ -75,7 +69,8 @@ const Login = () => {
                     name='email'
                     type='text'
                     autoComplete='text'
-                    onChange={(e) => setUserEmail(e.target.value)}
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                     className='block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                   />
                 </div>
@@ -96,10 +91,12 @@ const Login = () => {
                     name='password'
                     type='password'
                     autoComplete='current-password'
-                    onChange={(e) => setUserPass(e.target.value)}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                     className='block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
                   />
                 </div>
+                {error && <div className='text-red-500'>{error}</div>}
               </div>
 
               <div>
