@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
@@ -9,17 +9,19 @@ const Login = () => {
   const navigate = useNavigate();
 
   const loginHandler = async () => {
+
+    const formData = new FormData();
+    formData.append('email', email);
+    formData.append('password', password);
+
     try {
-      const response = await axios.post('http://localhost:4000/login', {
-        email: email,
-        password: password,
-      });
+      const response = await axios.post('http://localhost:4000/login', formData);
 
       setError('')
       const id = response.data.id
-      navigate('/userhome' , {state:{id:id}})
-      // console.log('Login successful:' ,response.data.message);
-
+      const fullname = response.data.fullname
+      navigate('/userhome' , {state:{id:id,fullname:fullname}})
+      
     } catch (error) {
       setError('Invalid Credentail');
     }
@@ -41,8 +43,8 @@ const Login = () => {
         <div className='p-10'>
           <h1 className='text-white text-5xl font-semibold py-5'>Hulk Fit</h1>
           <p className='text-white text-xl pb-5'>
-            "Empower your mind, fuel your soul; let the energy within propel you
-            to remarkable heights of action and achievement."
+          &quot;Empower your mind, fuel your soul; let the energy within propel you
+            to remarkable heights of action and achievement.&quot;
           </p>
         </div>
       </div>

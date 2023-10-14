@@ -8,7 +8,9 @@ import {
   IoPersonOutline,
 } from 'react-icons/io5';
 
-const Navbar = (user) => {
+const Navbar = (props) => {
+  const id = props.id
+  console.log(`Type of Navbar props is ${typeof id} and value is ${id}`)
   return (
     <nav>
       <ul className='flex justify-evenly px-5'>
@@ -25,13 +27,13 @@ const Navbar = (user) => {
         </li>
 
         <li className='rounded-md w-[52px] h-[52px] bg-[#D9D9D9] flex justify-center items-center'>
-          <Link to={'/activitytype'} state={{ user: user }}>
+          <Link to={'/activitytype'} state={{ id: id }}>
             <IoAddCircleOutline className='text-black text-3xl' />
           </Link>
         </li>
 
         <li className='rounded-md w-[52px] h-[52px] bg-[#D9D9D9] flex justify-center items-center'>
-          <Link to={'/dashboard'} state={{ user: user }}>
+          <Link to={'/dashboard'} state={{ id: id }}>
             <IoBarChartOutline className='text-black text-3xl' />
           </Link>
         </li>

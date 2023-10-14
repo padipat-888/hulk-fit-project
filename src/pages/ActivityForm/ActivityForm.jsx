@@ -3,12 +3,15 @@ import { useLocation , useNavigate } from 'react-router-dom';
 import user from "../../../src/assets/user.png"
 
 const ActivityForm = () => {
-  let { state } = useLocation();
   const navigate = useNavigate();
   const [activityName, setActivityName] = useState("");
   const [activityDes, setActivityDes] = useState("")
   const [uploadFile, setUploadFile] = useState( user );
   const [id, setId] = useState( 1 )
+
+  const { state } = useLocation();
+  const userId = state.id
+  console.log(`Typeof Id is ${typeof userId} and value is ${userId}`)
 
   const handleFileChange = (evl) => { 
     const file = evl.target.files[0]
@@ -19,7 +22,7 @@ const ActivityForm = () => {
   const addActivity = async () => {
     
     const newActivity = {
-      user:state.user,
+      _id:userId,
       idActivity: id,
       type: state.type,
       image: uploadFile,

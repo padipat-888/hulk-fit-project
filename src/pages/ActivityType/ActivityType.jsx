@@ -24,22 +24,22 @@ import football from "../../../src/assets/type/football.png"
 const ActivityType = () => {
 
   const { state } = useLocation()
-  let user = state.user.user
-  console.log(user)
+  const id = state.id
+  console.log(`Typeof Id is ${typeof id} and value is ${id}`)
 
   return (
     <div className="">
     <div className="w-[290px] m-auto">
       <h1 className="text-5xl text-white text-center mt-24 mb-11">Activity Type</h1>
       <div className="grid grid-cols-2 justify-items-center">
-        <Link to="/activityform" state={ { user:user, icon: walk , type: "walk"}}><img src={iconWalk} alt="walk icon" className="w-[123px] h-[123px] m-2"/></Link>
-        <Link to="/activityform" state={ { user:user, icon: run , type: "run"}} ><img src={iconRun} alt="run icon" className="w-[123px] h-[123px] m-2" /></Link>
-        <Link to="/activityform" state={ { user:user, icon: bicycle , type: "bicycle"}} ><img src={iconBicycle} alt="bicycle icon" className="w-[123px] h-[123px] m-2" /></Link>
-        <Link to="/activityform" state={ { user:user, icon: swim , type: "swim"}} ><img src={iconSwim} alt="swim icon" className="w-[123px] h-[123px] m-2"/></Link>
-        <Link to="/activityform" state={ { user:user, icon: tennis , type: "tennis"}} ><img src={iconTennis} alt="tennis icon" className="w-[123px] h-[123px] m-2"/></Link>
-        <Link to="/activityform" state={ { user:user, icon: skateboard , type: "skateboard"}} ><img src={iconSkateboard} alt="skateboard icon" className="w-[123px] h-[123px] m-2"/></Link>
-        <Link to="/activityform" state={ { user:user, icon: hike , type: "hike"}} ><img src={iconHike} alt="hike icon" className="w-[123px] h-[123px] m-2" /></Link>
-        <Link to="/activityform" state={ { user:user, icon: football , type: "football"}} ><img src={iconFootball} alt="football icon" className="w-[123px] h-[123px] m-2"/></Link>
+        <Link to="/activityform" state={ { id:id, icon: walk , type: "walk"}}><img src={iconWalk} alt="walk icon" className="w-[123px] h-[123px] m-2"/></Link>
+        <Link to="/activityform" state={ { id:id, icon: run , type: "run"}} ><img src={iconRun} alt="run icon" className="w-[123px] h-[123px] m-2" /></Link>
+        <Link to="/activityform" state={ { id:id, icon: bicycle , type: "bicycle"}} ><img src={iconBicycle} alt="bicycle icon" className="w-[123px] h-[123px] m-2" /></Link>
+        <Link to="/activityform" state={ { id:id, icon: swim , type: "swim"}} ><img src={iconSwim} alt="swim icon" className="w-[123px] h-[123px] m-2"/></Link>
+        <Link to="/activityform" state={ { id:id, icon: tennis , type: "tennis"}} ><img src={iconTennis} alt="tennis icon" className="w-[123px] h-[123px] m-2"/></Link>
+        <Link to="/activityform" state={ { id:id, icon: skateboard , type: "skateboard"}} ><img src={iconSkateboard} alt="skateboard icon" className="w-[123px] h-[123px] m-2"/></Link>
+        <Link to="/activityform" state={ { id:id, icon: hike , type: "hike"}} ><img src={iconHike} alt="hike icon" className="w-[123px] h-[123px] m-2" /></Link>
+        <Link to="/activityform" state={ { id:id, icon: football , type: "football"}} ><img src={iconFootball} alt="football icon" className="w-[123px] h-[123px] m-2"/></Link>
         
       </div>
     </div>
