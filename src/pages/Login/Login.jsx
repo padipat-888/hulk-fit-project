@@ -9,19 +9,14 @@ const Login = () => {
   const navigate = useNavigate();
 
   const loginHandler = async () => {
-
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-
+    const userData = {email:email, password:password}
+    console.log(userData.email , ' --- ', userData.password)
     try {
-      const response = await axios.post('http://localhost:4000/login', formData);
-
-      setError('')
-      const id = response.data.id
-      const fullname = response.data.fullname
-      navigate('/userhome' , {state:{id:id,fullname:fullname}})
-      
+      const response = await axios.post(
+        'http://localhost:4000/login', userData
+      );
+      console.log('Response from backend:', response.data.message, response.status, response.data.user);
+      // alert(`Welcome new Member your Signup Complete Code:${response.status}`);
     } catch (error) {
       setError('Invalid Credentail');
     }
@@ -43,8 +38,8 @@ const Login = () => {
         <div className='p-10'>
           <h1 className='text-white text-5xl font-semibold py-5'>Hulk Fit</h1>
           <p className='text-white text-xl pb-5'>
-          &quot;Empower your mind, fuel your soul; let the energy within propel you
-            to remarkable heights of action and achievement.&quot;
+            &quot;Empower your mind, fuel your soul; let the energy within
+            propel you to remarkable heights of action and achievement.&quot;
           </p>
         </div>
       </div>
