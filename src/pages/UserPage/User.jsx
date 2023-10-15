@@ -1,20 +1,19 @@
-import React from 'react'
 import Navbar from '../../components/Navbar.jsx'
 import Caruosel from '../../components/Carousel.jsx'
 import { MdDirectionsRun,MdLocalFireDepartment,MdLocationPin} from "react-icons/md";
-import { useLocation } from 'react-router-dom';
+import { useCookies } from 'react-cookie';
 
 const User = () => {
-  const { state } = useLocation()
-  const id = state.id
-  const fullname = state.fullname
+  const [cookies] = useCookies(['userId']);
+  const id = cookies.userId.id
+  const fullname = cookies.userId.fullname
   return (
     <div className="bg-[url('/assets/userhomeBg.png')] h-screen bg-no-repeat">
       <div>
         {/* section 1 for Teader Text */}
         <div className='pt-16 pl-7'>
           <h1 className='text-3xl text-white'><span className='text-[#00ECFF]'>Good</span> Morning <span className='text-[#F53FA1]'>{fullname.toUpperCase()}</span></h1>
-          <h2 className='text-2xl text-white font-light pl-8'>Let's start your day</h2>
+          <h2 className='text-2xl text-white font-light pl-8'>Let&apos;s start your day</h2>
         </div>
         {/* section 2 for Workout News */}
         <div>

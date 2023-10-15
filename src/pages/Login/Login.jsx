@@ -1,22 +1,40 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useCookies } from 'react-cookie';
+
 
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const navigate = useNavigate();
+  const [cookies, setCookie] = useCookies(['authToken', 'userId']);
+
 
   const loginHandler = async () => {
-    const userData = {email:email, password:password}
+    const userData = 
+    {
+      email:email,
+      password:password
+    }
+
     console.log(userData.email , ' --- ', userData.password)
+
     try {
-      const response = await axios.post(
-        'http://localhost:4000/login', userData
-      );
-      console.log('Response from backend:', response.data.message, response.status, response.data.user);
-      // alert(`Welcome new Member your Signup Complete Code:${response.status}`);
+
+      const response = await axios.post('http://localhost:4000/login', userData);
+
+      // console.log('Response from backend:', response.data.message, response.status, response.data.user);
+
+      const userId = response.data.user
+      setCookie('userId',userId,{ path: '/' })
+
+      console.log(cookies.userId.fullname)
+
+
+      navigate('/userhome')
+
     } catch (error) {
       setError('Invalid Credentail');
     }
