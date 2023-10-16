@@ -5,9 +5,9 @@ import { MdDirectionsRun,MdLocalFireDepartment,MdLocationPin} from "react-icons/
 
 const User = () => {
   return (
-    <div className="bg-[url('/public/assets/userhomeBg.png')] h-screen bg-no-repeat">
+    <div className="bg-[url('/assets/userhomeBg.png')] h-screen bg-no-repeat">
       <div>
-        {/* section 1 for Teader Text */}
+        {/* section 1 for Header Text */}
         <div className='pt-16 pl-7'>
           <h1 className='text-3xl text-white'><span className='text-[#00ECFF]'>Good</span> Morning <span className='text-[#F53FA1]'>Alex</span></h1>
           <h2 className='text-2xl text-white font-light pl-8'>Let's start your day</h2>

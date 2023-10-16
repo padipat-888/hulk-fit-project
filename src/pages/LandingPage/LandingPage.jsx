@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const LandingPage = () => {
   return (
-    <div className="bg-[url('/public/assets/landingpageBg.png')] h-screen bg-no-repeat">
+    <div className="bg-[url('/assets/landingpageBg.png')] h-screen bg-no-repeat">
       <div className="pl-12 pt-16">
         <h1 className=" text-[64px] text-cyan-400 font-bold">HULK FIT</h1>
         <h3 className=" text-white font-light">

@@ -36,7 +36,6 @@ const ActivityForm = () => {
     <div className="text-white">
     <div className="w-[328px] flex flex-col m-auto">
       <img className="w-[93px] h-[37] mt-16	self-end" src={ state.icon } />
-      
       <label htmlFor="fileUpload" className="button">
       <img src={uploadFile} alt="user image" className="w-[180px] h-[180px] object-cover mt-[30px] mb-[34px] m-auto	"/>
       </label>
