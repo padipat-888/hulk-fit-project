@@ -1,81 +1,87 @@
-import React, { useState } from 'react';
-import { useLocation , useNavigate } from 'react-router-dom';
-import user from "../../../src/assets/user.png";
+import React, { useState } from "react";
+import { useAsyncError, useLocation, useNavigate } from "react-router-dom";
 
 const ActivityForm = () => {
   let { state } = useLocation();
   const navigate = useNavigate();
+  const [id, setId] = useState(1);
   const [activityName, setActivityName] = useState("");
   const [activityDes, setActivityDes] = useState("");
-  const [uploadFile, setUploadFile] = useState( user );
-  const [id, setId] = useState( 1 );
-
-  const handleFileChange = (evl) => { 
-    const file = evl.target.files[0]
-    const url = URL.createObjectURL(file)
-    setUploadFile(url)
-  }
+  const [date, setDate] = useState();
+  const [duration, setDuration] = useState();
 
   const addActivity = async () => {
-    
     const newActivity = {
       idActivity: id,
       type: state.type,
-      image: uploadFile,
       activity: activityName,
       desc: activityDes,
-      start: new Date()
+      date: date,
+      duration: duration
     };
-    //setAlert(true);
-    setId( id+1 );
-    navigate('/activitytiming', { newActivity : newActivity });
+    console.log(newActivity)
+    setId(id + 1);
     alert("Success");
+    navigate("/");
   };
 
   return (
     <div className="text-white">
-      {/* <div className="alert alert-success">
-  <svg xmlns="http://www.w3.org/2000/svg" className="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-  <span>Success!</span>
-</div> */}
-    <div className="w-[328px] flex flex-col m-auto">
-      <img className="w-[93px] h-[37] mt-16	self-end" src={ state.icon } />
-      
-      <label htmlFor="fileUpload" className="button">
-      <img src={uploadFile} alt="user image" className="w-[180px] h-[180px] object-cover rounded-xl border-4 border-[#243c5a] mt-[30px] mb-[34px] m-auto	hover:border-white"/>
-      </label>
-      <input
-        type="file"
-        id="fileUpload"
-        style={{ display: 'none' }}
-        onChange={handleFileChange}
-      />
- 
-      <label htmlFor="activity-name" className="my-0.5 px-3 text-2xl ">Activity Name</label>
-      <input
-        className="my-0.5 border-2 border-[#243c5a] rounded-lg bg-inherit p-3.5 hover:border-white" id="activity-name"
-        name="activity-name"
-        placeholder="Enter Activity name"
-        value={activityName}
-        onChange={(evl) => setActivityName(evl.target.value)}
-      ></input>
+      <div className="w-[328px] flex flex-col m-auto">
+        <img className="w-[93px] h-[37] mt-16	self-end" src={state.icon} />
 
-      <label htmlFor="activity-description" className="my-0.5 px-3 text-2xl ">Activity Description</label>
-      <textarea
-        className="h-[185px] my-0.5 border-2 border-[#243c5a] rounded-lg bg-inherit p-3.5  hover:border-white"
-        id="activity-description"
-        name="activity-description"
-        rows="4"
-        cols="50"
-        placeholder="Enter Activity details"
-        value={activityDes}
-        onChange={(evl) => setActivityDes(evl.target.value)}
-      ></textarea>
-      
-      <button onClick={addActivity} className="h-[57px] my-16 bg-[#00ECFF] rounded-lg text-black text-2xl	font-bold	">Start</button>
-</div>
-</div>
-  )
-}
+        <label htmlFor="activity-name" className="my-0.5 px-3 text-2xl ">
+          Activity Name
+        </label>
+        <input
+          className="my-0.5 border-2 border-[#243c5a] rounded-lg bg-inherit p-3.5 hover:border-white"
+          id="activity-name"
+          name="activity-name"
+          placeholder="Enter Activity name"
+          value={activityName}
+          onChange={(evl) => setActivityName(evl.target.value)}
+        ></input>
 
-export default ActivityForm
+        <label htmlFor="activity-description" className="my-0.5 px-3 text-2xl ">
+          Activity Description
+        </label>
+        <textarea
+          className="h-[185px] my-0.5 border-2 border-[#243c5a] rounded-lg bg-inherit p-3.5  hover:border-white"
+          id="activity-description"
+          name="activity-description"
+          rows="4"
+          cols="50"
+          placeholder="Enter Activity details"
+          value={activityDes}
+          onChange={(evl) => setActivityDes(evl.target.value)}
+        ></textarea>
+
+        <label htmlFor="date" className="my-0.5 px-3 text-2xl ">
+          Date
+        </label>
+        <input type="date"
+          className="custom-date-input my-0.5 border-2 border-[#243c5a] rounded-lg bg-inherit p-3.5 hover:border-white"
+          id="date"
+          name="date"
+          value={date}
+          onChange={(evl) => setDate(evl.target.value)}
+        ></input>
+
+        <label htmlFor="duration" className="my-0.5 px-3 text-2xl ">
+          Duration
+        </label>
+        <input type="time" name="timeinput"
+        className="custom-time-input bg-inherit border-2 border-[#243c5a] rounded-lg p-3.5 hover:border-white" onChange={(evl) => setDuration(evl.target.value)}/> 
+
+        <button
+          onClick={addActivity}
+          className="h-[57px] my-16 bg-[#00ECFF] rounded-lg text-black text-2xl font-bold	"
+        >
+          Save
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default ActivityForm;

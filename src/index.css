@@ -11,4 +11,11 @@ html{
     scroll-behavior: smooth;
     background-image: url("/src/assets/bg.png");
 }
-
+@layer components{
+    .custom-date-input::-webkit-calendar-picker-indicator {
+        filter: invert(1); /* เปลี่ยนสีไอคอนเป็นสีขาว */
+      }
+    input[type="time"]::-webkit-calendar-picker-indicator{
+        filter: invert(1);
+    }
+}
