@@ -29,7 +29,7 @@ const SignUp = () => {
   };
 
   const signupHandler = async () => {
-    console.log('loginclick');
+    console.log('signup click');
     
     const formData = new FormData();
     formData.append('fullname', fullname);

@@ -1,7 +1,6 @@
 import ReactDOM from 'react-dom/client'
 import './index.css'
 import ActivityForm from './pages/ActivityForm/ActivityForm.jsx';
-import ActivityTiming from './pages/ActivityTiming/ActivityTiming.jsx';
 import ActivityType from './pages/ActivityType/ActivityType.jsx';
 import Concluding from './pages/Concluding/Concluding.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
@@ -36,10 +35,6 @@ const router = createBrowserRouter([
   {
     path: "/activityform",
     element: <ActivityForm />,
-  },
-  {
-    path: "/activitytiming",
-    element: <ActivityTiming />,
   },
   {
     path: "/concluding",

@@ -4,9 +4,8 @@ import { MdDirectionsRun,MdLocalFireDepartment,MdLocationPin} from "react-icons/
 import { useCookies } from 'react-cookie';
 
 const User = () => {
-  const [cookies] = useCookies(['userId']);
-  const id = cookies.userId.id
-  const fullname = cookies.userId.fullname
+  const [cookies] = useCookies(['user']);
+  const fullname = cookies.user.fullname
   return (
     <div className="bg-[url('/assets/userhomeBg.png')] h-screen bg-no-repeat">
       <div>
@@ -51,7 +50,7 @@ const User = () => {
             <div className='bg-white m-6 p-5 h-[100px] rounded-sm'></div>
           </div> 
         </div>
-        <Navbar id={id} />
+        <Navbar />
       </div>
       
     </div>
