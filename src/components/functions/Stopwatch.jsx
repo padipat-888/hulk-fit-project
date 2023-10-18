@@ -30,7 +30,10 @@ const Stopwatch = () => {
 
   return (
     <div>
-        <div className='text-2xl mx-2 px-5 py-5'>
+        <div className='text-3xl mx-2 px-5 py-5 text-white'>
+            Runing
+        </div>
+        <div className='text-3xl mx-2 px-5 py-5 text-white'>
             {hours.toString().padStart(2,"0")}:{minutes.toString().padStart(2,"0")}:{seconds.toString().padStart(2,"0")}:{miliseconds.toString().padStart(2,"0")}
         </div>
         <div>

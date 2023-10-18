@@ -1,6 +1,4 @@
-import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
 import './index.css'
 import ActivityForm from './pages/ActivityForm/ActivityForm.jsx';
 
@@ -12,7 +10,7 @@ import Login from './pages/Login/Login.jsx';
 import SignUp from './pages/Signup/SignUp.jsx';
 import UserPage from './pages/UserPage/User.jsx'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
+import { CookiesProvider } from "react-cookie";
 
 const router = createBrowserRouter([
   {
@@ -49,6 +47,6 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <RouterProvider router={router}></RouterProvider>
+ReactDOM.createRoot(document.getElementById("root")).render(<CookiesProvider>
+  <RouterProvider router={router}></RouterProvider></CookiesProvider>
 );
