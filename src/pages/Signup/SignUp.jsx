@@ -29,7 +29,7 @@ const SignUp = () => {
   };
 
   const signupHandler = async () => {
-    console.log('loginclick');
+    console.log('signup click');
     
     const formData = new FormData();
     formData.append('fullname', fullname);
@@ -70,7 +70,9 @@ const SignUp = () => {
       }}
     >
       {/* <div className='hero-overlay bg-opacity-60'></div> */}
-      <div className='w-[70%] bg-gradient-to-b from-transparent from-65% to-black flex flex-col justify-end items-start '>
+      <div className='
+      mobile:w-0 tablet:w-[50%] labtop:w-[60%] desktop:w-[70%]  
+      bg-gradient-to-b from-transparent from-65% to-black flex flex-col justify-end items-start '>
         <div className='p-10'>
           <h1 className='text-white text-5xl font-semibold py-5'>Hulk Fit</h1>
           <p className='text-white text-xl pb-5'>
@@ -79,17 +81,19 @@ const SignUp = () => {
           </p>
         </div>
       </div>
-      <div className='w-[30%] bg-slate-50'>
+      <div className='
+      mobile:w-[100%] tablet:w-[50%] labtop:w-[40%] desktop:w-[30%] 
+      bg-[url("/src/assets/bg.png")]'>
         <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
           <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
-            <h2 className='text-center text-6xl font-bold text-gray-900'>
-              Hulk Fit
+            <h2 className='mt-10 text-center text-6xl font-bold leading-9 tracking-tight text-white'>
+              Hulk <span className='text-light-blue'>Fit</span>
             </h2>
           </div>
 
           <div className='flex flex-row justify-center align-middle mt-10'>
             <div className='avatar'>
-              <div className='w-24 h-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2'>
+              <div className='w-24 h-24 rounded-full ring ring-[#F540A1] ring-offset-[#F540A1] ring-offset-2'>
                 <img src={images.length < 1 ? defaultImage : imageURLs} />
               </div>
             </div>
@@ -97,96 +101,63 @@ const SignUp = () => {
 
           <div className='mt-10 sm:mx-auto sm:w-full sm:max-w-sm'>
             <form className='space-y-6'>
-              <div>
-                <label
-                  htmlFor='fullname'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  FullName
-                </label>
+              
                 <div className='mt-2'>
                   <input
                     name='fullname'
                     type='text'
                     required
                     value={fullname}
+                    placeholder='Enter fullName'
                     onChange={(e) => setFullName(e.target.value)}
-                    className='block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                    className='bg-transparent block w-full rounded-md border-0 py-1.5 px-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100 sm:text-sm sm:leading-6'
                   />
                 </div>
-              </div>
+              
 
-              <div>
-                <label
-                  htmlFor='email'
-                  className='block text-sm font-medium leading-6 text-gray-900'
-                >
-                  Email address
-                </label>
+              
                 <div className='mt-2'>
                   <input
                     name='email'
                     type='text'
                     value={email}
+                    placeholder='Enter email'
                     onChange={(e) => setEmail(e.target.value)}
-                    className='block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
-                    placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                    className='bg-transparent block w-full rounded-md border-0 py-1.5 px-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100 sm:text-sm sm:leading-6'
                   />
                 </div>
-              </div>
+              
 
-              <div>
-                <div className='flex items-center justify-between'>
-                  <label
-                    htmlFor='password'
-                    className='block text-sm font-medium leading-6 text-gray-900'
-                  >
-                    Password
-                  </label>
-                </div>
+              
                 <div className='mt-2'>
                   <input
                     name='password'
                     type='password'
                     value={password}
+                    placeholder='Enter password'
                     onChange={(e) => setPassword(e.target.value)}
-                    className='block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
-                    placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                    className='bg-transparent block w-full rounded-md border-0 py-1.5 px-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100 sm:text-sm sm:leading-6'
                   />
                 </div>
-              </div>
+              
 
-              <div>
-                <div className='flex items-center justify-between'>
-                  <label
-                    htmlFor='repassword'
-                    className='block text-sm font-medium leading-6 text-gray-900'
-                  >
-                    Re-Password
-                  </label>
-                </div>
+              
+                
                 <div className='mt-2'>
                   <input
                     id='repassword'
                     name='repassword'
                     type='password'
                     value={repassword}
+                    placeholder='Enter re-password'
                     onChange={(e) => setRePassword(e.target.value)}
-                    className='block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
-                    placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                    className='bg-transparent block w-full rounded-md border-0 py-1.5 px-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100 sm:text-sm sm:leading-6'
                   />
                 </div>
-              </div>
+              
 
-              <div>
-                <div className='flex items-center justify-between'>
-                  <label
-                    htmlFor='image'
-                    className='block text-sm font-medium leading-6 text-gray-900'
-                  >
-                    Upload Profile Image
-                  </label>
-                </div>
+              
+                
                 <div className='mt-2'>
                   <input
                     name='image'
@@ -194,27 +165,27 @@ const SignUp = () => {
                     multiple
                     accept='image/*'
                     onChange={(e) => onImageChange(e.target.files[0])}
-                    className='block w-full rounded-md border-0 py-1.5 px-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6'
+                    className='bg-transparent block w-full rounded-md border-0 py-1.5 px-2 text-white shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-slate-100 sm:text-sm sm:leading-6'
                   />
                 </div>
-              </div>
+              
 
               <div>
                 <button
                   onClick={() => signupHandler()}
                   type='button'
-                  className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+                  className='flex w-full justify-center rounded-md bg-[#00ECFF] px-3 py-1.5 text-sm font-bold leading-6 text-black  hover:bg-[#F540A1] hover:text-white'
                 >
                   Sign Up
                 </button>
               </div>
             </form>
 
-            <p className='mt-10 text-center text-sm text-gray-500'>
+            <p className='mt-10 text-center text-sm text-gray-300'>
               Already a member?{' '}
               <Link
                 to={'/login'}
-                className='font-semibold leading-6 text-indigo-600 hover:text-indigo-500'
+                className='font-semibold leading-6 text-[#F540A1] hover:text-[#00ECFF]'
               >
                 Login.
               </Link>
