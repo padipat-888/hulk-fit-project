@@ -12,10 +12,10 @@ const Navbar = (props) => {
   const id = props.id
   console.log(`Type of Navbar props is ${typeof id} and value is ${id}`)
   return (
-    <nav>
+    <nav className='lg:hidden'>
       <ul className='flex justify-evenly px-5'>
         <li className='rounded-md w-[52px] h-[52px] bg-[#D9D9D9] flex justify-center items-center'>
-          <Link to={'#'}>
+          <Link to={'/'}>
             <IoHomeOutline className='text-black text-3xl' />
           </Link>
         </li>
@@ -39,7 +39,7 @@ const Navbar = (props) => {
         </li>
 
         <li className='rounded-md w-[52px] h-[52px] bg-[#D9D9D9] flex justify-center items-center'>
-          <Link to={''}>
+          <Link to={'#'}>
               <IoPersonOutline className='text-black text-3xl' />
           </Link>
         </li>
