@@ -5,15 +5,14 @@ import { useCookies } from 'react-cookie';
 import NavbarDesktop from '../../components/NavbarDesktop.jsx';
 
 const User = () => {
-  // const [cookies] = useCookies(['userId']);
-  // const id = cookies.userId.id
-  // const fullname = cookies.userId.fullname
+  // const [cookies] = useCookies(['user']);
+  // const fullname = cookies.user.fullname
   return (
     <div className="h-screen">
       <NavbarDesktop />
       <div>
         {/* section 1 for Teader Text */}
-        <div className='pt-16 pl-7 lg:pl-16'>
+        <div className='pt-16 pl-7 lg:pl-16 lg:pt-10'>
           <h1 className='lg:text-[2.5rem] lg:pb-4 text-3xl text-white'><span className='text-[#00ECFF]'>Good</span> Morning <span className='text-[#F53FA1]'>GING</span></h1>
           <h2 className='lg:text-[2.5rem] text-2xl text-white font-light pl-8'>Let&apos;s start your day</h2>
         </div>
@@ -47,13 +46,19 @@ const User = () => {
               </div>
             </div>
           </div>
-
+        {/* Lastest Activity for Desktop */}
+          {/* <div className='hidden lg:flex'>
+              <div className='bg-white m-6 p-5 h-[100px] rounded-sm'></div>
+          </div> */}
+        
+        {/* Lastest Activity for Mobile */}
           <div className='lg:hidden'>
             <h2 className='pl-7 text-lg font-semibold text-white'>Lastest Activity</h2>
             <div className='bg-white m-6 p-5 h-[100px] rounded-sm'></div>
           </div> 
+        
         </div>
-        <Navbar/>
+        <Navbar />
       </div>
       
     </div>
