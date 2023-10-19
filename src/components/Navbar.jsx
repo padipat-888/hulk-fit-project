@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import {
   IoAddCircleOutline,
@@ -27,13 +26,13 @@ const Navbar = (props) => {
         </li>
 
         <li className='rounded-md w-[52px] h-[52px] bg-[#D9D9D9] flex justify-center items-center'>
-          <Link to={'/activitytype'} state={{ id: id }}>
+          <Link to={'/activitytype'}>
             <IoAddCircleOutline className='text-black text-3xl' />
           </Link>
         </li>
 
         <li className='rounded-md w-[52px] h-[52px] bg-[#D9D9D9] flex justify-center items-center'>
-          <Link to={'/dashboard'} state={{ id: id }}>
+          <Link to={'/dashboard'}>
             <IoBarChartOutline className='text-black text-3xl' />
           </Link>
         </li>

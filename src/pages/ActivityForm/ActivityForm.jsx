@@ -4,11 +4,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 const ActivityForm = () => {
   let { state } = useLocation();
   const navigate = useNavigate();
-  const [id, setId] = useState(1);
   const [activityName, setActivityName] = useState("");
   const [activityDes, setActivityDes] = useState("");
   const [date, setDate] = useState("");
   const [duration, setDuration] = useState();
+
 
   const handleTimeChange = (event) => {
     const timeInput = event.target.value;
@@ -20,7 +20,6 @@ const ActivityForm = () => {
   const addActivity = async () => {
     const newActivity = {
       _id: state.id,
-      idActivity: id,
       type: state.type,
       activity: activityName,
       desc: activityDes,
@@ -29,10 +28,21 @@ const ActivityForm = () => {
     };
 
     console.log(newActivity);
-    setId(id + 1);
     alert("Success");
-    navigate("/userhome");
+    try {
+      const response = await axios.post(
+        'http://localhost:4000/addactivity',
+        newActivity
+      );
+      console.log('Response from backend:', response.data, response.status)
+      navigate('/userhome')
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    
   };
+  
 
   return (
     <div className="text-white">
@@ -42,6 +52,7 @@ const ActivityForm = () => {
         <div className="">
         </div>
         <div className="w-[30%] h-[887px] flex flex-col m-10">
+
           <label htmlFor="activity-name" className="my-0.5 px-3 text-2xl ">
             Activity Name
           </label>
@@ -106,7 +117,6 @@ const ActivityForm = () => {
       <div className="w-[328px] flex flex-col m-auto md:hidden">
         <img className="w-[93px] h-[37] mt-16	self-end" src={state.iconMb} />
 
-        <img />
         <label htmlFor="activity-name" className="my-0.5 px-3 text-2xl ">
           Activity Name
         </label>
