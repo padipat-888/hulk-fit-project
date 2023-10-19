@@ -71,7 +71,7 @@ const SignUp = () => {
     >
       {/* <div className='hero-overlay bg-opacity-60'></div> */}
       <div className='
-      mobile:w-0 tablet:w-[50%] labtop:w-[60%] desktop:w-[70%]  
+      w-0 sm:w-[50%] md:w-[60%] lg:w-[70%]  
       bg-gradient-to-b from-transparent from-65% to-black flex flex-col justify-end items-start '>
         <div className='p-10'>
           <h1 className='text-white text-5xl font-semibold py-5'>Hulk Fit</h1>
@@ -82,7 +82,7 @@ const SignUp = () => {
         </div>
       </div>
       <div className='
-      mobile:w-[100%] tablet:w-[50%] labtop:w-[40%] desktop:w-[30%] 
+      w-[100%] sm:w-[50%] md:w-[40%] lg:w-[30%] 
       bg-[url("/src/assets/bg.png")]'>
         <div className='flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8'>
           <div className='sm:mx-auto sm:w-full sm:max-w-sm'>
