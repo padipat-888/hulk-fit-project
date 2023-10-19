@@ -7,9 +7,7 @@ import {
   IoPersonOutline,
 } from 'react-icons/io5';
 
-const Navbar = (props) => {
-  const id = props.id
-  console.log(`Type of Navbar props is ${typeof id} and value is ${id}`)
+const Navbar = () => {
   return (
     <nav>
       <ul className='flex justify-evenly px-5'>

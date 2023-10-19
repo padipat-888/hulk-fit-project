@@ -40,7 +40,7 @@ const ActivityForm = () => {
     } catch (error) {
       console.error('Error:', error);
     }
-    
+    navigate('/userhome')
   };
   
 
