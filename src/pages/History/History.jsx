@@ -2,21 +2,37 @@ import { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
 
-const Dashboard = () => {
+const History = () => {
   const [cookies] = useCookies(['user']);
   const userID = cookies.user._id;
   const [apiData, setAPIData] = useState([]);
-  
+  const [reload,setReload] = useState(true);
 
   useEffect(() => {
     axios
       .get(`http://localhost:4000/activitylist/${userID}`)
       .then((result) => {
         setAPIData(result.data);
+        console.log(userID)
         console.log(result.data);
       })
       .catch((err) => console.log(err));
-  }, );
+  }, [reload]);
+
+  const deleteHandler = async (id) => {
+    console.log(id)
+    try {
+      const response = await axios.delete(
+        `http://localhost:4000/activitylist/delete/${id}`);
+      console.log('Response from backend:', response.status);
+      console.log(`ลบแล้ว:${response.status}`)
+
+    } catch (error) {
+      console.error('Error:', error);
+    }
+
+    setReload(!reload)
+  }
 
   return (
     <div className='flex flex-row flex-wrap'>
@@ -27,11 +43,12 @@ const Dashboard = () => {
               <div className='flex flex-row justify-between'>
                 
                   <h2 className='card-title text-[2rem]'>{items.actType}</h2>
-                  <button className='text-red-600 font-extrabold ring-2 ring-red-600 px-2 py-1 hover:bg-red-600 hover:text-white'>
+                  <button onClick={() => deleteHandler(items._id)} className='text-red-600 font-extrabold ring-2 ring-red-600 px-2 py-1 hover:bg-red-600 hover:text-white'>
                     X
                   </button>
                 
               </div>
+              <p>Activity Name : {items._id}</p>
               <p>Activity Name : {items.actName}</p>
               <p>Activity Description : {items.actDescription}</p>
               <p>Activity Duration : {items.actDuration}</p>
@@ -48,4 +65,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default History;
