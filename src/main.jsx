@@ -10,7 +10,7 @@ import UserPage from './pages/UserPage/User.jsx'
 import History from './pages/History/History';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
-
+import History from './pages/History/History';
 const router = createBrowserRouter([
   {
     path: "/",

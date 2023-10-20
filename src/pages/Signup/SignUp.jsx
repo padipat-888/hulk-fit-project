@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 const SignUp = () => {
   const [images, setImages] = useState('');
   const [imageURLs, setImageURLs] = useState([]);
@@ -196,5 +195,4 @@ const SignUp = () => {
     </div>
   );
 };
-
 export default SignUp;
