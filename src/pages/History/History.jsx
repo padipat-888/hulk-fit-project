@@ -41,12 +41,12 @@ const History = () => {
           <div className='card w-96 bg-base-100 shadow-xl mx-10 my-10'>
             <div className='card-body'>
               <div className='flex flex-row justify-between'>
-
+                
                   <h2 className='card-title text-[2rem]'>{items.actType}</h2>
                   <button onClick={() => deleteHandler(items._id)} className='text-red-600 font-extrabold ring-2 ring-red-600 px-2 py-1 hover:bg-red-600 hover:text-white'>
                     X
                   </button>
-
+                
               </div>
               <p>Activity Name : {items._id}</p>
               <p>Activity Name : {items.actName}</p>
