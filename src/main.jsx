@@ -2,12 +2,12 @@ import ReactDOM from 'react-dom/client'
 import './index.css'
 import ActivityForm from './pages/ActivityForm/ActivityForm.jsx';
 import ActivityType from './pages/ActivityType/ActivityType.jsx';
-import Concluding from './pages/Concluding/Concluding.jsx';
 import Dashboard from './pages/Dashboard/Dashboard.jsx';
 import LandingPage from './pages/LandingPage/LandingPage.jsx';
 import Login from './pages/Login/Login.jsx';
 import SignUp from './pages/Signup/SignUp.jsx';
 import UserPage from './pages/UserPage/User.jsx'
+import History from './pages/History/History';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
 
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
     element: <ActivityForm />,
   },
   {
-    path: "/concluding",
-    element: <Concluding />,
+    path: "/history",
+    element: <History />,
   },
   {
     path: "/dashboard",
