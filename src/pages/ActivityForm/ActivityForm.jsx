@@ -1,7 +1,12 @@
 import React, { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import { useCookies } from 'react-cookie';
+import axios from 'axios';
+
 
 const ActivityForm = () => {
+  const [cookies] = useCookies(['user']);
+  const userID = cookies.user._id;
   let { state } = useLocation();
   const navigate = useNavigate();
   const [activityName, setActivityName] = useState("");
@@ -18,29 +23,33 @@ const ActivityForm = () => {
   };
 
   const addActivity = async () => {
+
     const newActivity = {
-      _id: state.id,
-      type: state.type,
-      activity: activityName,
-      desc: activityDes,
-      date: date,
-      duration: duration,
+      userId: userID,
+      actType: state.type,
+      actName: activityName,
+      actDescription: activityDes,
+      actDate: date,
+      actDuration: duration
     };
 
-    console.log(newActivity);
-    alert("Success");
+    console.log(newActivity)
+
     try {
       const response = await axios.post(
         'http://localhost:4000/addactivity',
         newActivity
       );
       console.log('Response from backend:', response.data, response.status)
-      navigate('/userhome')
-
+      if(response.status === 200){
+        alert('เพิ่มสำเร็จ')
+        navigate('/history')
+      }else{
+        alert('Error!! เพิ่มไม่สำเร็จ')
+      }
     } catch (error) {
       console.error('Error:', error);
     }
-    navigate('/userhome')
   };
   
 
