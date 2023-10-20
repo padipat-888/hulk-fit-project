@@ -10,7 +10,7 @@ import SignUp from './pages/Signup/SignUp.jsx';
 import UserPage from './pages/UserPage/User.jsx'
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
-
+import History from './pages/History/History';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -37,8 +37,8 @@ const router = createBrowserRouter([
     element: <ActivityForm />,
   },
   {
-    path: "/concluding",
-    element: <Concluding />,
+    path: "/history",
+    element: <History />,
   },
   {
     path: "/dashboard",
