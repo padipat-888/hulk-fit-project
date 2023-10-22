@@ -35,32 +35,20 @@ const History = () => {
     setReload(!reload)
   }
 
-  // const updateHandler = async (items) => {
-    
-  //   const updatedActData = {
-  //     _id: items._id,
-  //     userId: items.userId,
-  //     actName: items.actName,
-  //     actDescription: items.actDescription,
-  //     actType: items.actType,
-  //     actDuration: items.actDuration,
-  //     actDate: items.actDate
-  //   };
+  const saveHandler = async (items) => {
+        
+    try {
+      const response = await axios.put(`http://localhost:4000/activitylist/update`,editedData);
 
-  //   setActData(updatedActData)
-    
-  //   try {
-  //     const response = await axios.put(`http://localhost:4000/activitylist/update`,actData);
+      console.log('Response from backend:', response.status);
+      console.log(`อัพเดทแล้ว:${response.status}`)
+      setEditedData(null);
+    } catch (error) {
+      console.error('Error:', error);
+    }
 
-  //     console.log('Response from backend:', response.status);
-  //     console.log(`ลบแล้ว:${response.status}`)
-
-  //   } catch (error) {
-  //     console.error('Error:', error);
-  //   }
-
-  //   setReload(!reload)
-  // }
+    setReload(!reload)
+  }
 
   const editHandler = (item) => {
     setEditedData({ ...item });
@@ -152,7 +140,17 @@ const History = () => {
 
               
               <div className='card-actions justify-end'>
-                <button onClick={() => editHandler(items)} className='btn btn-primary'>Edit</button>
+              {editedData && editedData._id === items._id ? (
+                // If the item is being edited, show the "Save" button
+                <button onClick={saveHandler} className='btn btn-primary'>
+                  Save
+                </button>
+              ) : (
+                // If not being edited, show the "Edit" button
+                <button onClick={() => editHandler(items)} className='btn btn-primary'>
+                  Edit
+                </button>
+              )}
               </div>
             </div>
           </div>
