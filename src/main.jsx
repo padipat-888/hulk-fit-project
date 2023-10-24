@@ -10,6 +10,8 @@ import UserPage from './pages/UserPage/User.jsx'
 import History from './pages/History/History';
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { CookiesProvider } from "react-cookie";
+import Profile from './pages/Profile/Profile';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +45,10 @@ const router = createBrowserRouter([
     path: "/dashboard",
     element: <Dashboard />,
   },
+  {
+    path: "/profile",
+    element: <Profile />
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(<CookiesProvider>
