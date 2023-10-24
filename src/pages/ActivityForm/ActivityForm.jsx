@@ -17,6 +17,7 @@ const ActivityForm = () => {
   const [invalidDuration, setInvalidDuration] = useState(false);
 
   const addActivity = async () => {
+
     const newActivity = {
       userId:id,
       actName:activityName,
@@ -39,7 +40,7 @@ const ActivityForm = () => {
       checkData();
       console.error('Error:', error);
     }
-    
+    navigate('/userhome')
   };
 
   const checkData = () => {

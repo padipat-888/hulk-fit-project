@@ -18,7 +18,7 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/${userID}`)
+      .get(`https://hulkfit-backend-wowi.onrender.com/${userID}`)
       .then((result) => {
         setFullname(result.data[0].fullname)
         setEmail(result.data[0].email)
@@ -30,7 +30,7 @@ function Profile() {
 
   const saveHandler = async () => {
     try {
-      const response = await axios.put(`http://localhost:4000/user/update`,editedData);
+      const response = await axios.put(`https://hulkfit-backend-wowi.onrender.com/user/update`,editedData);
       console.log(editedData)
       console.log('Response from backend:', response.data);
       console.log(`อัพเดทแล้ว:${response.status}`)
