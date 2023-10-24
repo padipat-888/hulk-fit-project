@@ -11,7 +11,7 @@ const History = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:4000/activitylist/${userID}`)
+      .get(`https://hulkfit-backend-wowi.onrender.com/activitylist/${userID}`)
       .then((result) => {
         setAPIData(result.data);
         console.log(userID)
@@ -24,7 +24,7 @@ const History = () => {
     console.log(id)
     try {
       const response = await axios.delete(
-        `http://localhost:4000/activitylist/delete/${id}`);
+        `https://hulkfit-backend-wowi.onrender.com/activitylist/delete/${id}`);
       console.log('Response from backend:', response.status);
       console.log(`ลบแล้ว:${response.status}`)
 
@@ -38,7 +38,7 @@ const History = () => {
   const saveHandler = async (items) => {
         
     try {
-      const response = await axios.put(`http://localhost:4000/activitylist/update`,editedData);
+      const response = await axios.put(`https://hulkfit-backend-wowi.onrender.com/activitylist/update`,editedData);
 
       console.log('Response from backend:', response.status);
       console.log(`อัพเดทแล้ว:${response.status}`)

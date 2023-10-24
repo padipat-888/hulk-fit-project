@@ -38,7 +38,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        'http://localhost:4000/signup',
+        'https://hulkfit-backend-wowi.onrender.com/signup',
         formData
       );
       console.log('Response from backend:', response.data, response.status);

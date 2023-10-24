@@ -31,7 +31,7 @@ const NavbarDesktop = () => {
                 </li>
                 <li className='group text-white transition duration-300 hover:scale-125'>
                   <Link to={"/profile"}>PROFILE
-                  <span class="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[#F53FA1]"></span>
+                  <span className="block max-w-0 group-hover:max-w-full transition-all duration-500 h-0.5 bg-[#F53FA1]"></span>
                   </Link>
                 </li>
             </ul>
