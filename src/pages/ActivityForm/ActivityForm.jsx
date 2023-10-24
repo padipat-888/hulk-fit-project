@@ -22,6 +22,7 @@ const ActivityForm = () => {
   };
 
   const addActivity = async () => {
+
     const newActivity = {
       userId:id,
       actName:activityName,
@@ -43,7 +44,7 @@ const ActivityForm = () => {
     } catch (error) {
       console.error('Error:', error);
     }
-    
+    navigate('/userhome')
   };
   
   return (
