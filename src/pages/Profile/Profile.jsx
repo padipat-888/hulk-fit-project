@@ -1,4 +1,6 @@
 import React from "react";
+import Navbar from '../../components/Navbar.jsx'
+import NavbarDesktop from '../../components/NavbarDesktop.jsx';
 import { useState, useEffect } from "react";
 import { useCookies } from "react-cookie";
 import axios from "axios";
@@ -8,7 +10,7 @@ function Profile() {
   const [cookies] = useCookies(["user"]);
   const userID = cookies.user._id;
   const [reload,setReload] = useState(true);
-  const [image, setImage] = useState(user);
+  const [image, setImage] = useState();
   const [fullname, setFullname] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,6 +23,7 @@ function Profile() {
         setFullname(result.data[0].fullname)
         setEmail(result.data[0].email)
         setPassword(result.data[0].password)
+        result.data[0].image ? (setImage(result.data[0].image)) : (setImage(user))
       })
       .catch((err) => console.log(err));
   }, [reload]);
@@ -52,6 +55,7 @@ function Profile() {
 
   return (
     <>
+    <NavbarDesktop />
     {/* ----------desktop---------- */}
     <div className="bg-black text-white rounded-3xl w-[80%] m-auto  max-md:hidden mt-20">
     {editedData ? (
