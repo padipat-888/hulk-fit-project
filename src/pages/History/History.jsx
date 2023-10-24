@@ -18,7 +18,7 @@ const History = () => {
         console.log(result.data);
       })
       .catch((err) => console.log(err));
-  }, [reload]);
+  }, [reload, userID]);
 
   const deleteHandler = async (id) => {
     console.log(id)
@@ -35,7 +35,7 @@ const History = () => {
     setReload(!reload)
   }
 
-  const saveHandler = async (items) => {
+  const saveHandler = async () => {
         
     try {
       const response = await axios.put(`https://hulkfit-backend-wowi.onrender.com/activitylist/update`,editedData);
