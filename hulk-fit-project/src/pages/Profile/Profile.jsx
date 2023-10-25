@@ -18,7 +18,7 @@ function Profile() {
 
   useEffect(() => {
     axios
-      .get(`https://hulkfit-backend-wowi.onrender.com/${userID}`)
+      .get(`https://hulkfit-backend-wowi.onrender.com/user/${userID}`)
       .then((result) => {
         console.log(result.data.fullname)
         setFullname(result.data.fullname)
@@ -161,6 +161,7 @@ function Profile() {
                 </div>
               )}
     </div>
+    <Navbar />
     </>
   );
 }
