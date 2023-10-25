@@ -1,12 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import axios from 'axios';
-import { Line } from '@ant-design/charts';
 import { Column } from '@ant-design/plots';
 import { Pie } from '@ant-design/plots';
 import { Bar } from '@ant-design/plots';
 import { Radar } from '@ant-design/plots';
-import { Heatmap, G2 } from '@ant-design/plots';
 import { each, groupBy } from '@antv/util';
 import NavbarDesktop from '../../components/NavbarDesktop.jsx';
 import Navbar from '../../components/Navbar.jsx';
@@ -88,16 +86,11 @@ const Dashboard = () => {
      
   }, [reload]);
 
-
-
 // input the first three elements of the array
 const mostApiDataMostAct = apiDataMostAct.slice(0, 3);
 const mostApiDataMostDuration = apiDataMostDuration.slice(0, 3);
 console.log(mostApiDataMostAct);
 console.log(mostApiDataMostDuration);
-
-
-
 
 //note: display total duration at top of column
 const annotations = [];
@@ -121,7 +114,7 @@ const configColumn = {
   //isGroup: true,
   isStack: true,
   xField: 'actDate',
-  yField: 'actDuration',
+  yField: 'actDate',
   seriesField: 'actType',
   legend: {
     position: 'top-right',
